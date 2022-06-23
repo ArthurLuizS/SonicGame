@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#container{
+    background-color: red;
+    border: 1px solid red;
+    height: 100vh;
+   position: relative;
+   margin: 0 auto;
+   display: flex;
+   overflow: hidden;
+   background-image: url('./Images/montada.png');
+   
+    
+}
+#contador{
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    z-index: 1;
+    background-color: greenyellow;
+
+}
+.pipe-game {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 90px;
+    animation: pipe-animation 2.5s infinite linear;
+}
+#anel{
+    position: absolute;
+    bottom: 0;
+    width: 70px;
+    height: 50px;
+    animation: pipe-animation 8s infinite linear;
+}
+#back{
+    background-color: rgb(110, 156, 255);
+  
+    height: 50% ;
+    width: 100%;
+    position: absolute;
+    margin-top: 30px;
+    margin-bottom:30% ;
+    flex: 2;
+  
+    
+   
+}
+#img1{
+    position: center;
+    height: 100vh;
+   
+    width: 100%;
+    position: absolute;
+    margin-bottom:50% ;
+  /*  animation: clouds-animation 4s infinite linear; */
+    animation-delay: 0s;
+    background-repeat: repeat-x;
+    animation: clouds-animation 10s infinite linear;
+    z-index: 1;
+   
+}
+#img2{
+    position: center;
+    height: 100vh;
+   
+    width: 100%;
+    position: absolute;
+    margin-bottom:50% ;
+    animation: clouds-animation-2 10s infinite linear;
+    animation-delay: -5s;
+    background-repeat: repeat-x;
+    z-index: 0;
+}
+#parado{
+    height: 100vh;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    overflow: hidden;
+}
+.game{
+    background-color: white transparent; 
+    border: 1px solid white;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    bottom: 18vh;
+    flex: 2;
+    z-index: 2;
+}
+/*daqui pra baixo refatorar*/
+.sonic{
+    width:100px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 70px;
+    animation: sonic-jump;
+}
+.sonic-transformation{
+    width:100px;
+    height: 100px;
+    position: absolute;
+    bottom: 180px;
+}
+
+.tails{
+    width: 90px;
+    margin-left:  -30px;
+    position: absolute;
+    bottom: 250px;
+}
+.eggman{
+    width: 200px;
+    margin-top: 100px;
+    float: right;
+    position: static;
+    margin-right: 40px;
+
+}
+.eggmanHehe{
+    position: absolute;
+    width: 200px;
+    margin-left: 200px;
+    bottom: 0;
+}
+
+.jump-sonic {
+    animation: sonic-animation 500ms ease-out;
+}
+
+.cloud-game{
+    position: absolute;
+    width: 550px;
+    animation: clouds-animation 20s infinite linear;
+}
+
+@keyframes clouds-animation {
+    from{
+        right: -100%;
+    }
+    to{
+        right:  100%;
+    }
+}
+@keyframes clouds-animation-2 {
+    from{
+        right: -100%;
+    }
+    to{
+        right:  100%;
+    }
+}
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+    to{
+        right: 100%;
+    }
+}
+@keyframes sonic-animation{
+    0% {
+        bottom:0;
+    }
+    40% {
+        bottom: 180px;
+    }
+    50% {
+        bottom: 180px;
+    }
+    60%{
+        bottom: 180px;
+    }
+    70%{
+        bottom: 180px;
+    }
+    100%{
+        bottom: 0%
+    }
+
+}
