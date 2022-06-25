@@ -4,35 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>teste</title>
+    <title>SonicGame</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="container">
-        <div id="contador">
-            <span id="valor" value="0"> 0 </span>
-            <span id="aneis">Anéis: 0</span> 
-            <span id="jumps">Jóias: 0</span>
+        <div id="start">
+            <article id="menu">
+                <p>Sonic Mini Game</p>
+                <p><span>Desafio da Tech Academy</span></p>
+                <p>Aperte <strong>▶</strong> para iniciar</p>
+            </article>
+         <div id="botao">
+            <button id="play"> <span> STARTESE ▶ </span></button>
+            <p>Por Arthur Luiz</p>
+         </div>
+          
+        </div>
+        <div id="contador"  class="Pontuacao">
+          
+            <span id="mensagem" > </span>
+            <span id="valor" value="0">Distância:  0 </span>
+           
+           <!-- <span id="aneis">Anéis: 0</span> 
+            <span id="jumps">Jóias: 0</span> -->
         </div>
         <img id="parado" src="../sonic fundo/montada.png" alt=""/>
         <div id="back">
-            <img id="img1" src="./Images/fundo-sonic.png" alt=""/>
-            <img id="img2" src="./Images/fundo-sonic.png" alt=""/>
+            <img class="cenario" id="img1" src="./Images/fundo-sonic.png" alt=""/>
+            <img class="cenario" id="img2" src="./Images/fundo-sonic.png" alt=""/>
             
         </div>
         <div class="game">
-          <!--   <img src="./Images/clouds-gamer.png" class="cloud-game" />
-             <img id="back" src="./Images/fundo-sonic.png" alt=""/>-->
+          
              <img src="./Images/sonic/sonic/sonic-running.gif" class="sonic" />
              <img src="./Images/sonic/tails/tails-running.gif" class="tails"/>
              <img src="./Images/sonic/eggman/eggman-running.gif"  class="eggman"/>
             
               
-             <img src="./Images/sonic/recompensas/sonic-sprite-sonic1.gif" class="recompensa" id="anel"/>
+             <img src="./Images/sonic/recompensas/esmeraldas.gif" class="recompensa" id="anel"/>
            
             <img src="./Images/sonic/obstaculos/obstaculo.gif" class="pipe-game" />
         </div>
+      
     </div>
+   
     <script src="./js/script.js"></script>
 </body>
 </html>
