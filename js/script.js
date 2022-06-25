@@ -1,20 +1,46 @@
 const sonic = document.querySelector(".sonic");
+const sonic2 = document.querySelector('.sonic-2')
 const pipe = document.querySelector(".pipe-game");
 const eggman = document.querySelector('.eggman');
 const tails = document.querySelector('.tails');
 const imgBackOne = document.querySelector('#img1');
+const imgBackTwo = document.querySelector('#img2')
 const ValorContador = document.querySelector('#valor')
 const jumps = document.querySelector('#jumps');
 const anel = document.querySelector('#anel');
 const aneisValor = document.querySelector('#aneis');
-let contador = 0;
+const placa = document.querySelector('#contador')
+const mensagem = document.querySelector('#mensagem')
+const placaAnel = document.querySelector('.placa')
+const menu = document.querySelector('#start')
+const iniciar = document.querySelector('#play')
+let contadorDistancia = 0;
 let pulos = 0; 
 let aneis = 0;
 let sonicImune = 0;
+let start = 0;
+
+iniciar.addEventListener('click',  ()=> {
+  start = 1;
+  sonicImune = 1;
+  startar();
+  setTimeout(() => {
+    sonicImune = 0;
+
+  },500)
+ 
+  
+});
+
+const startar = ()=> {
+  menu.style.visibility = 'hidden'
+
+
+
 const jump = () => {
+  
   pulos++;
   sonic.classList.add("jump-sonic");
-  jumps.textContent = `Jups: ${pulos}`
   setTimeout(() => {
     sonic.classList.remove("jump-sonic");
   }, 500);
@@ -42,31 +68,38 @@ const loopGame = setInterval(() => {
     sonic.style.marginLeft = "45px";
     sonic.style.zIndex = "9999";
 
-    /*eggman.style.position = 'absolute'
-    eggman.style.marginLeft = `200px`
-    eggman.style.bottom = '0';
-    eggman.style. */
     eggman.className = 'eggmanHehe'
     eggman.src = './Images/sonic/eggman/eggman-hehe.gif';
     tails.src= './Images/sonic/tails/tails-over.gif';
+    tails.style.marginLeft = '-15px'
     tails.style.bottom = '0';
     tails.style.zIndex = '99'
 
+    anel.style.visibility = 'hidden';
+    
+    const mensagemGameOver = document.createElement("p");
+    mensagemGameOver.innerText = 'Game Over';
+    //placar.appendChild(mensagemGameOver);
+    mensagem.textContent = "Game Over"
+    placa.style.marginRight = '35%';
+    placa.style.marginTop = '50vh';
+    placa.style.opacity = '1'
+    placa.style.zIndex = '9999'
     clearInterval(loopGame);
   }
   else{ 
-    contador++;
-    ValorContador.textContent = `${contador}`}
+    contadorDistancia++;
+    ValorContador.textContent = `Distância: ${contadorDistancia} Km`}
 
-  if (anelPosition <= 30 && anelPosition > 0 && marioPosition < 80) {
-    aneis++;
-    aneisValor.textContent = `Anéis: ${aneis}`
+  if (anelPosition <= 60 && anelPosition > 0 && sonicPosition < 80) {
+   
     transformation();
     setTimeout(() =>{
-      sonicImune = 0;
-    }, 100)
-    sonicImune = 0;
-  }
+      normal();
+      
+    }, 6000) 
+   
+  } 
 }, 10);
 
 const transformation = () => {
@@ -74,25 +107,45 @@ const transformation = () => {
   sonic.src = './Images/sonic/sonic/sonic-transformation.gif'
   setTimeout(() => {
     sonic.src = './Images/sonic/sonic/sonic-speed.gif'
-    eggman.style.marginRight = `400px`
+    eggman.style.marginRight = `600px`
     sonic.style.marginLeft = "400px"
-    pipe.style.animation = 'pipe-animation 0.7s infinite linear'
-    imgBackOne.style.animation = 'animation: clouds-animation 0.5s infinite linear;'
+    pipe.src = './Images/sonic/obstaculos/porco-espinho.gif'
+    pipe.style.animation = 'pipe-animation 0.8s infinite linear'
+    anel.style.visibility = 'hidden'
+
     tails.src = './Images/sonic/tails/tails-fasted.gif'
-    tails.style.marginLeft = '200px';
-    setTimeout(() => {mario.classList.remove("sonic-transformation");
-    sonic.className = 'sonic'
-    sonic.src = './Images/sonic/sonic/sonic-running.gif'
+    tails.style.marginLeft = '50px';
+    imgBackOne.style.animation = 'clouds-animation 1s infinite linear';
+    imgBackTwo.style.animation = 'clouds-animation-2 1s infinite linear';
+    imgBackTwo.style.animationDelay = '0.5s'
+   
+    contadorDistancia = contadorDistancia * 2;
+  },1000 ); 
+  
+};
+const normal = () => {
+    
+    sonic.src = './Images/sonic/sonic/sonic-transformation.gif'
+    sonic.style.height = '100px'
+    sonic.className = 'sonic-2'
+    sonic.style.marginLeft = "60px"
+    eggman.style.marginRight = `500px`
+    tails.style.marginLeft = '20px';
+    pipe.style.animation = 'none'
     sonicImune =1;
-    anel.style.animation = 'none'}, 5000)
-  },1000 ); } /*
+    anel.style.animation = 'none';
+    pipe.style.visibility = 'hidden'
   setTimeout(() => {
- 
-  mario.classList.remove("sonic-transformation");
-  mario.className = 'sonic'
-  mario.src = './Images/sonic/sonic/sonic-running.gif'
-  sonicImune =1;
-  anel.style.animation = 'none'
-  }, 5000); 
-}; */
+    pipe.style.visibility = 'visible'
+    sonic.className = 'sonic'
+     sonic.classList.remove("sonic-transformation");
+     pipe.style.animation = 'pipe-animation 1.5s infinite linear'
+      sonic.src = './Images/sonic/sonic/sonic-running1.gif'
+      sonicImune = 0;
+    
+    }, 800);
+} 
 document.addEventListener("keydown", jump);
+
+
+}
